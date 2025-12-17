@@ -1,22 +1,27 @@
 ###Intermountain West Shorebird Survey###
 #Originally developed by Blake Barbaree, Point Blue Conservation Science, bbarbaree@pointblue.org
 
-
 ###IMWSS Survey Filter 
 ##IMWSS protocol is one survey per season
 #Here is the living list of survey entries in the AKN to Filter Out
 #The list is typically updated during the QA/QC process after each survey season
 #Usually if two or more surveys were submitted, we retained the survey within the window or with the highest total shorebirds counted.
 
+df<-rdf #if needed
+
 ###List of surveys or other entries that will not be analyzed for IMWSS 
-df <- df[!(df$SamplingUnit == "WY" & df$Date == "2023-04-30"),] # erroneous survey entry, unable to delet from database
+df <- df[!(df$SamplingUnit == "AA-TEST-01"),] # remove test data
+df <- df[!(df$SamplingUnit == "WY" & df$Date == "2023-04-30"),] # erroneous survey entry, unable to delete from database
 df <- df[!(df$SamplingUnit == "U to all!"),] # erroneous survey entry, unknown origin or location
 df <- df[!(df$SamplingUnit == "CA-HL-LAKE" & df$Date == "2024-08-30"),]
 df <- df[!(df$SamplingUnit == "WA-YAKIMARV" & df$Date == "2024-08-19"),]
+df <- df[!(df$SamplingUnit == "WA-YAKIMARV" & df$Date == "2025-04-23"),]
 df <- df[!(df$SamplingUnit == "WY-HLNWR-5" & df$Date == "2022-08-21"),]
 df <- df[!(df$SamplingUnit == "OR-KB-UKL-WS" & df$Date == "2023-08-17" & df$StartTime == "12:01:00"),]
 df <- df[!(df$SamplingUnit == "WA-OTHELLOSP" & df$Date == "2023-05-04"),]
 df <- df[!(df$SamplingUnit == "WA-OTHELLOSP" & df$Date == "2023-08-18"),]
+df <- df[!(df$SamplingUnit == "WA-OTHELLOSP" & df$Date == "2025-05-02"),]
+df <- df[!(df$SamplingUnit == "WA-OTHELLOSP" & df$Date == "2025-08-12"),]
 df <- df[!(df$SamplingUnit == "CO-ANWR-4" & df$Date == "2023-05-10"),]
 df <- df[!(df$SamplingUnit == "ID-OXSL" & df$Date == "2023-04-28"),]
 df <- df[!(df$SamplingUnit == "NV-DIAMOND" & df$Date == "2023-04-23"),]
@@ -28,12 +33,29 @@ df <- df[!(df$SamplingUnit == "CO-FRUIT" & df$Date == "2024-04-28"),]
 df <- df[!(df$SamplingUnit == "CO-FRUIT" & df$Date == "2024-04-30"),]
 df <- df[!(df$SamplingUnit == "CO-SLV-SLLAK" & df$Date == "2024-04-26"),]
 df <- df[!(df$SamplingUnit == "NV-PAHR-BAIK" & df$Date == "2024-04-26"),]
+df <- df[!(df$SamplingUnit == "NV-PAHR-MM" & df$Date == "2025-04-30"),]
 df <- df[!(df$SamplingUnit == "CO-FRUIT" & df$Date == "2024-04-30"),]
 df <- df[!(df$SamplingUnit == "CO-FRUIT" & df$Date == "2024-04-30"),]
 df <- df[!(df$SamplingUnit == "CO-FRUIT" & df$Date == "2024-04-30"),]
 df <- df[!(df$SamplingUnit == "CO-FRUIT" & df$Date == "2024-04-30"),]
+df <- df[!(df$SamplingUnit == "CO-FRUIT" & df$Date == "2025-08-10"),]
+df <- df[!(df$SamplingUnit == "OR-ABERT" & df$Date == "2025-08-21"),] #remove double coverage of some areas, used only aerial survey data
+df <- df[!(df$SamplingUnit == "WY-BURL" & df$Date == "2025-08-10"),]
+df <- df[!(df$SamplingUnit == "WA-WALLA" & df$Date == "2025-08-21"),]
+df <- df[!(df$SamplingUnit == "WA-WALLA" & df$Date == "2025-08-10"),]
+df <- df[!(df$SamplingUnit == "WA-CRABHWY26" & df$Date == "2025-04-23"),]
+df <- df[!(df$SamplingUnit == "WA-CRABHWY26" & df$Date == "2025-05-02"),]
+df <- df[!(df$SamplingUnit == "OR-KB-AGFLDS" & df$Date == "2025-08-19"),]
+df <- df[!(df$SamplingUnit == "NM-COCH-W" & df$Date == "2024-04-26"),]
+df <- df[!(df$SamplingUnit == "CO-WALDEN-1" & df$Date == "2025-08-11"),]
+df <- df[!(df$SamplingUnit == "CO-WALDEN-2" & df$Date == "2025-08-11"),]
+df <- df[!(df$SamplingUnit == "CO-WALDEN-3" & df$Date == "2025-08-11"),]
+df <- df[!(df$SamplingUnit == "CO-WALDEN-1" & df$Date == "2025-08-11"),]
 df <- df[!(df$SamplingUnit == "WY-DR" & df$Date == "2024-08-15"),]
 df <- df[!(df$SamplingUnit == "WA-SOAP" & df$Date == "2025-05-06"),]
+df <- df[!(df$SamplingUnit == "NV-BASSETT" & df$Date == "2024-08-20"),]
+df <- df[!(df$SamplingUnit == "NV-WASH" & df$Date == "2023-04-24"),]
+#Ruby Valley has repeat surveys each season
 df <- df[!(df$SamplingUnit == "NV-RV-RL-ATW" & df$Date == "2023-08-17"),]
 df <- df[!(df$SamplingUnit == "NV-RV-RL-NM" & df$Date == "2023-08-17"),]
 df <- df[!(df$SamplingUnit == "NV-RV-RL-NES" & df$Date == "2023-08-17"),]
@@ -70,4 +92,11 @@ df <- df[!(df$SamplingUnit == "NV-RV-RL-ATW" & df$Date == "2025-04-24"),]
 df <- df[!(df$SamplingUnit == "NV-RV-RL-NM" & df$Date == "2025-04-24"),]
 df <- df[!(df$SamplingUnit == "NV-RV-RL-NES" & df$Date == "2025-04-24"),]
 df <- df[!(df$SamplingUnit == "NV-RV-RL-SM" & df$Date == "2025-04-24"),]
-df <- df[!(df$SamplingUnit == "OR-ABERT" & df$Date == "2025-08-21"),]
+df <- df[!(df$SamplingUnit == "NV-RV-RL-ATW" & df$Date == "2025-08-21"),]
+df <- df[!(df$SamplingUnit == "NV-RV-RL-NM" & df$Date == "2025-08-21"),]
+df <- df[!(df$SamplingUnit == "NV-RV-RL-NES" & df$Date == "2025-08-21"),]
+df <- df[!(df$SamplingUnit == "NV-RV-RL-SM" & df$Date == "2025-08-21"),]
+df <- df[!(df$SamplingUnit == "NV-RV-RL-ATW" & df$Date == "2025-08-21"),]
+df <- df[!(df$SamplingUnit == "NV-RV-RL-NM" & df$Date == "2025-08-21"),]
+df <- df[!(df$SamplingUnit == "NV-RV-RL-NES" & df$Date == "2025-08-21"),]
+df <- df[!(df$SamplingUnit == "NV-RV-RL-SM" & df$Date == "2025-08-21"),]
